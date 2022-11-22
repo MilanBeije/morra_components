@@ -1,6 +1,5 @@
-import logo from "./logo.svg";
+
 import "./App.css";
-import { Text } from "react-native";
 import CustomButton from "./components/CustomButton";
 import { GameResult } from "./components/GameResult";
 
