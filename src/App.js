@@ -1,5 +1,7 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { Text } from "react-native";
+import Button from "./components/button/Button";
 
 function App() {
   return (
@@ -9,6 +11,8 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
+        <Text>funge</Text>
+        <Button />
         <a
           className="App-link"
           href="https://reactjs.org"
