@@ -9,5 +9,12 @@ Object.defineProperty(exports, "CustomButton", {
     return _CustomButton.default;
   }
 });
+Object.defineProperty(exports, "GameResult", {
+  enumerable: true,
+  get: function get() {
+    return _GameResult.GameResult;
+  }
+});
 var _CustomButton = _interopRequireDefault(require("./CustomButton"));
+var _GameResult = require("./GameResult");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
