@@ -1,27 +1,16 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { Text } from "react-native";
-import Button from "./components/button/Button";
+import CustomButton from "./components/CustomButton";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <Text>funge</Text>
-        <Button />
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <CustomButton
+        onClickCallback={() => {
+          console.log("Ciao");
+        }}
+      />
     </div>
   );
 }
