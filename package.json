@@ -2,7 +2,7 @@
   "name": "morra_components",
   "main": "dist/index.js",
   "private": false,
-  "version": "0.8.1",
+  "version": "0.10.8",
   "files": [
     "dist",
     "README.md"
@@ -12,26 +12,22 @@
     "url": "https://github.com/MilanBeije/morra_components"
   },
   "dependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
     "prop-types": "^15.8.1",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
     "react-native-web": "~0.18.9",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "react-native": "0.70.5",
+    "@react-native-async-storage/async-storage": "~1.17.3"
   },
   "peerDependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
     "prop-types": "^15.8.1",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
     "react-native-web": "~0.18.9",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "react-native": "0.70.5",
+    "@react-native-async-storage/async-storage": "~1.17.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -39,7 +35,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "clean": "rimraf dist",
-    "compile": "npm run clean && cross-env NODE_ENV=production babel src/pages --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,stories.js,__snapshots__"
+    "compile": "npm run clean && cross-env NODE_ENV=production babel src/fordist --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,stories.js,__snapshots__"
   },
   "eslintConfig": {
     "extends": [

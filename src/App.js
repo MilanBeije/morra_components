@@ -1,7 +1,7 @@
 import "./App.css";
-import CustomButton from "./components/CustomButton";
-import { GameResult } from "./components/GameResult";
-import Login from "./pages/Login";
+import CustomButton from "./fordist/components/customButton/CustomButton";
+import { GameResult } from "./fordist/utils/GameResult";
+import Login from "./fordist/pages/Login";
 
 function App() {
   return (

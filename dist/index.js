@@ -3,18 +3,11 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-Object.defineProperty(exports, "CustomButton", {
+Object.defineProperty(exports, "Login", {
   enumerable: true,
   get: function get() {
-    return _CustomButton.default;
+    return _Login.default;
   }
 });
-Object.defineProperty(exports, "GameResult", {
-  enumerable: true,
-  get: function get() {
-    return _GameResult.GameResult;
-  }
-});
-var _CustomButton = _interopRequireDefault(require("./CustomButton"));
-var _GameResult = require("./GameResult");
+var _Login = _interopRequireDefault(require("./pages/Login"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }

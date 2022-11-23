@@ -72,6 +72,6 @@ matrici[2][2] = {
   losses: false
 };
 var GameResult = function GameResult(userChoice, cpuChoice) {
-  return matrici[(userChoice, cpuChoice)];
+  return matrici[userChoice][cpuChoice];
 };
 exports.GameResult = GameResult;

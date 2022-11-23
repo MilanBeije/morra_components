@@ -1,148 +1,153 @@
-import { StyleSheet, Dimensions } from "react-native";
+"use strict";
 
-export default StyleSheet.create({
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _reactNative = require("react-native");
+var _default = _reactNative.StyleSheet.create({
   genericContainer: {
-    flex: 1,
+    flex: 1
   },
   container2: {
-    flex: 2,
+    flex: 2
   },
   container3: {
-    flex: 3,
+    flex: 3
   },
   positionRelative: {
-    position: "relative",
+    position: "relative"
   },
   positionAbsolute: {
-    position: "absolute",
+    position: "absolute"
   },
   column: {
-    flexDirection: "column",
+    flexDirection: "column"
   },
   row: {
     display: "flex",
-    flexDirection: "row",
+    flexDirection: "row"
   },
   spaceAround: {
-    justifyContent: "space-around",
+    justifyContent: "space-around"
   },
   rowHeader: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "space-between"
   },
   fullScreenSize: {
-    width: Dimensions.get("window").width,
-    height: Dimensions.get("window").height,
+    width: _reactNative.Dimensions.get("window").width,
+    height: _reactNative.Dimensions.get("window").height
   },
   centerItems: {
     display: "flex",
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "center"
   },
   centerVertical: {
-    alignItems: "center",
+    alignItems: "center"
   },
   centerHorizontal: {
-    justifyContent: "center",
+    justifyContent: "center"
   },
   paddingContainer: {
     paddingVertical: 30,
-    paddingHorizontal: 6,
+    paddingHorizontal: 6
   },
   paddingContainer2: {
     paddingHorizontal: 10,
-    paddingVertical: 10,
+    paddingVertical: 10
   },
   paddingBottom: {
-    paddingBottom: 15,
+    paddingBottom: 15
   },
   paddingX: {
-    paddingHorizontal: 10,
+    paddingHorizontal: 10
   },
   paddingY: {
-    paddingVertical: 20,
+    paddingVertical: 20
   },
   marginY: {
-    marginVertical: 10,
+    marginVertical: 10
   },
   brandColorBg: {
-    backgroundColor: "#70E000",
+    backgroundColor: "#F752E0"
   },
-  branColorText: {
-    color: "#70E000",
+  brandColorText: {
+    color: "#F752E0"
   },
   secondaryBg: {
-    backgroundColor: "#008000",
+    backgroundColor: "#3DD8FC"
   },
   secondaryColorText: {
-    color: "#008000",
+    color: "#3DD8FC"
   },
   trdBg: {
-    backgroundColor: "#9EF01A",
+    backgroundColor: "#FFE045"
   },
   trdText: {
-    color: "#9EF01A",
+    color: "#FFE045"
   },
   darkColorBg: {
-    backgroundColor: "#004B23",
+    backgroundColor: "#004B23"
   },
   darkColorText: {
-    color: "#004B23",
+    color: "#004B23"
   },
   lightColorBg: {
-    backgroundColor: "#CCFF33",
+    backgroundColor: "#CCFF33"
   },
   lightColorText: {
-    color: "#CCFF33",
+    color: "#CCFF33"
   },
   blackBg: {
-    backgroundColor: "#101010",
+    backgroundColor: "#101010"
   },
   blackText: {
-    color: "#101010",
+    color: "#101010"
   },
   titleFont: {
-    fontSize: 40,
+    fontSize: 40
   },
   whiteColor: {
-    color: "#f6f6f6",
+    color: "#f6f6f6"
   },
   boldFont: {
-    fontWeight: "bold",
+    fontWeight: "bold"
   },
   smallText: {
-    fontSize: 13,
+    fontSize: 13
   },
   halfWidth: {
-    width: "50%",
+    width: "50%"
   },
   normalTextSize: {
-    fontSize: 20,
+    fontSize: 20
   },
   textCenter: {
-    textAlign: "center",
+    textAlign: "center"
   },
   lineThrough: {
-    textDecorationLine: "line-through",
+    textDecorationLine: "line-through"
   },
   underline: {
-    textDecorationLine: "underline",
+    textDecorationLine: "underline"
   },
   textMaiusc: {
-    textTransform: "uppercase",
+    textTransform: "uppercase"
   },
   marginRigth: {
-    marginRight: 10,
+    marginRight: 10
   },
   paddingHeader: {
     paddingHorizontal: 3,
-    paddingVertical: 5,
+    paddingVertical: 5
   },
   buttonBoxHeader: {
     display: "flex",
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "center"
   },
   inputBox: {
     height: 40,
@@ -155,7 +160,7 @@ export default StyleSheet.create({
     borderBottomWidth: 0,
     borderTopWidth: 0,
     borderRightWidth: 0,
-    borderLeftWidth: 0,
+    borderLeftWidth: 0
   },
   buttonSos: {
     height: 200,
@@ -163,33 +168,34 @@ export default StyleSheet.create({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: 200,
+    borderRadius: 200
   },
   sosText: {
-    fontSize: 70,
+    fontSize: 70
   },
   contacts: {
     height: 40,
     width: 40,
-    borderRadius: 40,
+    borderRadius: 40
   },
   squareButton: {
     paddingHorizontal: 20,
     paddingVertical: 10,
-    borderRadius: 10,
+    borderRadius: 10
   },
   image: {
     width: "100%",
-    height: 40,
+    height: 40
   },
   imageBg: {
     width: "100%",
-    height: "100%",
+    height: "100%"
   },
   wpButton: {
-    backgroundColor: "#25D366",
+    backgroundColor: "#25D366"
   },
   zIndexMax: {
-    zIndex: 100,
-  },
+    zIndex: 100
+  }
 });
+exports.default = _default;
