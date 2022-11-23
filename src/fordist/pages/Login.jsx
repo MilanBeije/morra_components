@@ -69,7 +69,7 @@ const Login = (props) => {
         console.log(e);
       }
     }
-    // props.callback();
+    props.callback();
     //localStorage.clear();
   };
   return (

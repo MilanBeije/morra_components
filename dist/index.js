@@ -3,6 +3,12 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+Object.defineProperty(exports, "Game", {
+  enumerable: true,
+  get: function get() {
+    return _Game.default;
+  }
+});
 Object.defineProperty(exports, "Login", {
   enumerable: true,
   get: function get() {
@@ -10,4 +16,5 @@ Object.defineProperty(exports, "Login", {
   }
 });
 var _Login = _interopRequireDefault(require("./pages/Login"));
+var _Game = _interopRequireDefault(require("./pages/Game"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
