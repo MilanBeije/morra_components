@@ -6,12 +6,12 @@ import Login from "./fordist/pages/Login";
 function App() {
   return (
     <div className="App">
-      <CustomButton
+      {/* <CustomButton
         onClickCallback={() => {
           const risultato = GameResult(1, 2);
           console.log(risultato);
         }}
-      />
+      /> */}
       <Login />
     </div>
   );

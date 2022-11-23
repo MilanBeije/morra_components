@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { Platform } from "react-native";
 
 //Native components
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Image, View, ImageBackground } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 //Components
@@ -15,6 +15,10 @@ import common from "../styles/common";
 
 //utils
 import { getUsers } from "../utils/getUsers";
+
+// media
+import BackgroundPicture from '../assets/img/bg2.jpg'
+import Logo from '../assets/img/logoNoPadding.png'
 
 let User = {
   userName: "",
@@ -73,21 +77,35 @@ const Login = (props) => {
     //localStorage.clear();
   };
   return (
-    <View style={common.genericContainer}>
-      <Text>Login</Text>
+    <View style={[common.fullScreenSize, common.positionRelative]}>
+      <ImageBackground
+        source={BackgroundPicture}
+        resizeMode={"cover"}
+        style={[common.imageBg, common.positionAbsolute]}
+      />
+      {/* <Text>Login</Text> */}
+      <Image 
+      source={Logo}
+      style={{height:'300px',width:'300px',marginHorizontal:'auto',marginVertical:30,marginBottom:60}}
+      resizeMode={"contain"}
+      />
       <CustomInput
         callback={getValueUsername()}
         styleCss={common.inputBox}
         placeholder={"inserisci userName"}
+        placeholderColor={common.brandColorText.color}
       />
       <CustomInput
         callback={getValueEmail()}
         styleCss={common.inputBox}
         placeholder={"inserisci Email"}
+        placeholderColor={common.brandColorText.color}
       />
       <CustomButton
         onClickCallback={navigateToGame}
-        buttonContainerStyle={[common.squareButton, common.brandColorBg]}
+        buttonContainerStyle={[common.squareButton, common.brandColorBg,common.centerItems]}
+        label={'GIOCA'}
+        buttonTextStyle={[common.boldFont,common.normalTextSize,common.secondaryColorText]}
       />
     </View>
   );

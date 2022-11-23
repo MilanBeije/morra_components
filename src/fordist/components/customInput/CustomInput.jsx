@@ -16,6 +16,7 @@ const CustomInput = (props) => {
         style={props.styleCss}
         onChangeText={typing}
         placeholder={props.placeholder}
+        placeholderTextColor={props.placeholderColor}
       />
     </View>
   );
@@ -26,5 +27,6 @@ CustomInput.propTypes = {
   styleCss: propTypes.object,
   placeholder: propTypes.string,
   password: propTypes.bool,
+  placeholderColor: propTypes.any
 };
 export default CustomInput;

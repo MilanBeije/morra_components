@@ -1,5 +1,8 @@
 import { StyleSheet, Dimensions } from "react-native";
 
+
+const brandColor = "#F752E0";
+
 export default StyleSheet.create({
   genericContainer: {
     flex: 1,
@@ -118,7 +121,7 @@ export default StyleSheet.create({
     width: "50%",
   },
   normalTextSize: {
-    fontSize: 20,
+    fontSize: 30,
   },
   textCenter: {
     textAlign: "center",
@@ -148,14 +151,15 @@ export default StyleSheet.create({
     height: 40,
     width: 300,
     marginVertical: 12,
-    borderWidth: 2,
+    margin:'auto',
+    borderWidth: 5,
     padding: 10,
-    backgroundColor: "#fff",
-    borderRadius: 10,
-    borderBottomWidth: 0,
-    borderTopWidth: 0,
-    borderRightWidth: 0,
-    borderLeftWidth: 0,
+    backgroundColor: "transparent",
+    borderRadius: 3,
+    borderColor:brandColor,
+    borderWidth:1,
+    backgroundColor:'#0000008a',
+    color:brandColor
   },
   buttonSos: {
     height: 200,
@@ -174,9 +178,11 @@ export default StyleSheet.create({
     borderRadius: 40,
   },
   squareButton: {
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    borderRadius: 10,
+    borderRadius: 5,
+    width: 300,
+    height:40,
+    marginHorizontal:'auto',
+    marginVertical:30
   },
   image: {
     width: "100%",
