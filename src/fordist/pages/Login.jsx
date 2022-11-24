@@ -115,11 +115,7 @@ const Login = (props) => {
           common.centerItems,
         ]}
         label={"GIOCA"}
-        buttonTextStyle={[
-          common.boldFont,
-          common.normalTextSize,
-          common.secondaryColorText,
-        ]}
+        buttonTextStyle={common.buttonTextSynthAzure}
       />
     </View>
   );

@@ -2,6 +2,7 @@ import { StyleSheet, Dimensions } from "react-native";
 
 
 const brandColor = "#F752E0";
+const secondaryColor = "#3DD8FC";
 
 export default StyleSheet.create({
   genericContainer: {
@@ -198,4 +199,9 @@ export default StyleSheet.create({
   zIndexMax: {
     zIndex: 100,
   },
+  buttonTextSynthAzure:{
+    fontWeight:'bold',
+    fontSize:30,
+    color:secondaryColor
+  }
 });
