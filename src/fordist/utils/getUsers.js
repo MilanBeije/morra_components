@@ -11,3 +11,12 @@ export const getUsers = async () => {
     return (oldUsers = allUsers !== null ? allUsers : []);
   }
 };
+
+export const getCurrentUser = async () => {
+  let oldUsers = [];
+  if (Platform.OS === "web") {
+    return JSON.parse(localStorage.getItem("currentUser"));
+  } else {
+    return JSON.parse(await AsyncStorage.getItem("@currentUser"));
+  }
+};
