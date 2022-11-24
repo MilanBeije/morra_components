@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { Platform } from "react-native";
 
 //Native components
-import { StyleSheet, Image, View, ImageBackground } from "react-native";
+import { Image, View, ImageBackground } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 //Components
@@ -19,6 +19,11 @@ import { getUsers } from "../utils/getUsers";
 // media
 import BackgroundPicture from "../assets/img/bg2.jpg";
 import Logo from "../assets/img/logoNoPadding.png";
+
+// colori
+const brandColor = "#F752E0";
+const secondaryColor = "#3DD8FC";
+const tertiaryColor = "#FFE045";
 
 let User = {
   userName: "",
@@ -81,7 +86,11 @@ const Login = (props) => {
       <ImageBackground
         source={BackgroundPicture}
         resizeMode={"cover"}
-        style={[common.imageBg, common.positionAbsolute]}
+        style={{
+          width: "100%",
+          height: "100%",
+          position: "absolute"
+        }}
       />
       {/* <Text>Login</Text> */}
       <Image
@@ -97,25 +106,61 @@ const Login = (props) => {
       />
       <CustomInput
         callback={getValueUsername()}
-        styleCss={common.inputBox}
+        styleCss={{
+          height: 40,
+          width: 300,
+          marginVertical: 12,
+          margin:'auto',
+          borderWidth: 5,
+          padding: 10,
+          backgroundColor: "transparent",
+          borderRadius: 3,
+          borderColor:brandColor,
+          borderWidth:1,
+          backgroundColor:'#0000008a',
+          color:brandColor
+        }}
         placeholder={"inserisci userName"}
-        placeholderColor={common.brandColorText.color}
+        placeholderColor={brandColor}
       />
       <CustomInput
         callback={getValueEmail()}
-        styleCss={common.inputBox}
+        styleCss={{
+          height: 40,
+          width: 300,
+          marginVertical: 12,
+          margin:'auto',
+          borderWidth: 5,
+          padding: 10,
+          backgroundColor: "transparent",
+          borderRadius: 3,
+          borderColor:brandColor,
+          borderWidth:1,
+          backgroundColor:'#0000008a',
+          color:brandColor
+        }}
         placeholder={"inserisci Email"}
-        placeholderColor={common.brandColorText.color}
+        placeholderColor={brandColor}
       />
       <CustomButton
         onClickCallback={navigateToGame}
-        buttonContainerStyle={[
-          common.squareButton,
-          common.brandColorBg,
-          common.centerItems,
-        ]}
+        buttonContainerStyle={{
+          borderRadius: 5,
+          width: 300,
+          height:40,
+          marginHorizontal:'auto',
+          marginVertical:30,
+          backgroundColor:brandColor,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center"
+        }}
         label={"GIOCA"}
-        buttonTextStyle={common.buttonTextSynthAzure}
+        buttonTextStyle={{
+          fontWeight:'bold',
+          fontSize:30,
+          color:secondaryColor
+        }}
       />
     </View>
   );
@@ -123,4 +168,3 @@ const Login = (props) => {
 
 export default Login;
 
-const styles = StyleSheet.create({});
