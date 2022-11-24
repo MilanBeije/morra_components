@@ -42,11 +42,11 @@ const secondaryColor = "#3DD8FC";
 const tertiaryColor = "#FFE045";
 
 // variabili
-let Pointsuser 
-let Pointscpu 
-let modalResult 
-let currentUser 
-let actualAttempts 
+let Pointsuser;
+let Pointscpu;
+let modalResult;
+let currentUser;
+let actualAttempts;
 
 const Game = (props) => {
   // stati
@@ -69,9 +69,9 @@ const Game = (props) => {
   }, []);
 
   useEffect(() => {
-      currentUser = state.player;
-     // gestione risultato finale
-     if (state.attempts > 3) {
+    currentUser = state.player;
+    // gestione risultato finale
+    if (state.attempts > 3) {
       let gameWin = false;
       if (state.userPoints > state.cpuPoints) {
         currentUser.gameWon++;
@@ -91,9 +91,9 @@ const Game = (props) => {
           }
         });
       }
-      updateUsers()
+      updateUsers();
     }
-  },[state.attempts])
+  }, [state.attempts]);
 
   const getUserData = async () => {
     const user = await getCurrentUser();
@@ -119,7 +119,7 @@ const Game = (props) => {
         console.log(e);
       }
     }
-  }
+  };
 
   const getUserMove = (index) => () => {
     console.log(index);
@@ -138,20 +138,20 @@ const Game = (props) => {
 
   const navigateToRanking = () => {
     // console.log("naivga alla classifica");
-    props.navigateToRankingCallback()
+    props.navigateToRankingCallback();
   };
   const navigateToGame = () => {
     setState({
       ...state,
-      endGame:false,
-      win:false,
+      endGame: false,
+      win: false,
       attempts: 1,
       userPoints: 0,
       cpuPoints: 0,
       movesCpu: 0,
       movesUser: 0,
-      showResult: 0
-    })
+      showResult: 0,
+    });
   };
 
   const getResult = async () => {
@@ -189,8 +189,6 @@ const Game = (props) => {
     });
 
     console.log(state);
-
-   
   };
 
   return (
@@ -205,16 +203,26 @@ const Game = (props) => {
         <View style={{ flex: 1 }}>
           <View className="statusGame" style={styles.statusGame}>
             <View className="attempts">
-              <Text style={{color:brandColor,fontWeight:'bold'}}>ROUND {state.attempts}</Text>
+              <Text style={{ color: brandColor, fontWeight: "bold" }}>
+                ROUND {state.attempts}
+              </Text>
             </View>
             <View
               className="points"
               style={{ display: "flex", flexDirection: "row" }}
             >
-              <Text style={{ marginRight: 10 ,color:brandColor,fontWeight:'bold'}}>
-                {state.player.userName} {state.userPoints}
+              <Text
+                style={{
+                  marginRight: 10,
+                  color: brandColor,
+                  fontWeight: "bold",
+                }}
+              >
+                {state.player.userName} {state.userPoints} |
               </Text>
-              <Text style={{color:brandColor,fontWeight:'bold'}}>CPU {state.cpuPoints}</Text>
+              <Text style={{ color: brandColor, fontWeight: "bold" }}>
+                Cpu {state.cpuPoints}
+              </Text>
             </View>
           </View>
 
@@ -224,6 +232,7 @@ const Game = (props) => {
               flex: 1,
               flexDirection: "row",
               justifyContent: "space-around",
+              marginTop: 20,
             }}
           >
             {IconArray.map((element, key) => {
@@ -286,8 +295,8 @@ const Game = (props) => {
                   <Image
                     source={loseBattle}
                     style={{
-                      width: 100,
-                      height: 100,
+                      width: 150,
+                      height: 150,
                     }}
                     resizeMode={"contain"}
                   />
@@ -296,8 +305,8 @@ const Game = (props) => {
                   <Image
                     source={vs}
                     style={{
-                      width: 100,
-                      height: 100,
+                      width: 150,
+                      height: 150,
                     }}
                     resizeMode={"contain"}
                   />
@@ -407,7 +416,9 @@ const Game = (props) => {
           </View>
         </View>
       ) : (
-        <View style={{ flex: 1 ,flexDirection:'column',alignItems:'center'}}>
+        <View
+          style={{ flex: 1, flexDirection: "column", alignItems: "center" }}
+        >
           {state.win ? (
             <Image
               source={winGame}
@@ -431,16 +442,41 @@ const Game = (props) => {
               flexDirection: "row",
               justifyContent: "space-around",
               marginHorizontal: 10,
-              width:300
+              width: 300,
+              marginVertical: 50,
             }}
           >
             <View style={{ display: "flex", flexDirection: "column" }}>
-              <Text style={{color:brandColor,fontSize:20,fontWeight:'bold'}}>{state.player.userName}</Text>
-              <Text style={{color:brandColor,fontSize:20,fontWeight:'bold'}}>{state.userPoints}</Text>
+              <Text
+                style={{ color: brandColor, fontSize: 20, fontWeight: "bold" }}
+              >
+                {state.player.userName}
+              </Text>
+              <Text
+                style={{ color: brandColor, fontSize: 20, fontWeight: "bold" }}
+              >
+                {state.userPoints}
+              </Text>
             </View>
             <View style={{ display: "flex", flexDirection: "column" }}>
-              <Text style={{color:tertiaryColor,fontSize:20,fontWeight:'bold'}}>Cpu</Text>
-              <Text style={{color:tertiaryColor,fontSize:20,fontWeight:'bold'}}>{state.cpuPoints}</Text>
+              <Text
+                style={{
+                  color: tertiaryColor,
+                  fontSize: 20,
+                  fontWeight: "bold",
+                }}
+              >
+                Cpu
+              </Text>
+              <Text
+                style={{
+                  color: tertiaryColor,
+                  fontSize: 20,
+                  fontWeight: "bold",
+                }}
+              >
+                {state.cpuPoints}
+              </Text>
             </View>
           </View>
           <CustomButton
@@ -449,7 +485,7 @@ const Game = (props) => {
               borderRadius: 5,
               width: 300,
               height: 40,
-              marginVertical: 30,
+              marginVertical: 10,
               backgroundColor: tertiaryColor,
               display: "flex",
               justifyContent: "center",
@@ -464,11 +500,22 @@ const Game = (props) => {
           />
           <CustomButton
             onClickCallback={navigateToGame}
-            buttonContainerStyle={styles.ButtonContainerStyle}
+            buttonContainerStyle={{
+              borderRadius: 5,
+              width: 300,
+              height: 40,
+              marginVertical: 10,
+              backgroundColor: brandColor,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
             label={"RIGIOCA"}
-            buttonTextStyle={ {fontWeight: "bold",
-            fontSize: 30,
-            color: tertiaryColor}}
+            buttonTextStyle={{
+              fontWeight: "bold",
+              fontSize: 30,
+              color: tertiaryColor,
+            }}
           />
         </View>
       )}
