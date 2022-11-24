@@ -96,10 +96,10 @@ const Login = (props) => {
     >
       <ImageBackground
         source={BackgroundPicture}
-        resizeMode={"cover"}
+        resizeMode={"contain"}
         style={{
-          width: "100%",
-          height: "100%",
+          width: Dimensions.get("window").width,
+          height: Dimensions.get("window").height,
           position: "absolute",
         }}
       />
@@ -107,8 +107,8 @@ const Login = (props) => {
       <Image
         source={Logo}
         style={{
-          height: "300px",
-          width: "300px",
+          height: 300,
+          width: 300,
           marginHorizontal: "auto",
           marginVertical: 30,
           marginBottom: 60,

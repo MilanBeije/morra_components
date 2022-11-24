@@ -134,17 +134,17 @@ var Login = function Login(props) {
     }
   }, /*#__PURE__*/_react.default.createElement(_reactNative.ImageBackground, {
     source: _bg.default,
-    resizeMode: "cover",
+    resizeMode: "contain",
     style: {
-      width: "100%",
-      height: "100%",
+      width: _reactNative.Dimensions.get("window").width,
+      height: _reactNative.Dimensions.get("window").height,
       position: "absolute"
     }
   }), /*#__PURE__*/_react.default.createElement(_reactNative.Image, {
     source: _logoNoPadding.default,
     style: {
-      height: "300px",
-      width: "300px",
+      height: 300,
+      width: 300,
       marginHorizontal: "auto",
       marginVertical: 30,
       marginBottom: 60
