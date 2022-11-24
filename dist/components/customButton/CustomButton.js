@@ -29,7 +29,7 @@ CustomButton.propTypes = {
   children: _propTypes.default.any,
   label: _propTypes.default.any,
   buttonContainerStyle: _propTypes.default.any,
-  buttonTextStyle: _propTypes.default.object
+  buttonTextStyle: _propTypes.default.any
 };
 var _default = CustomButton;
 exports.default = _default;

@@ -17,8 +17,8 @@ import common from "../styles/common";
 import { getUsers } from "../utils/getUsers";
 
 // media
-import BackgroundPicture from '../assets/img/bg2.jpg'
-import Logo from '../assets/img/logoNoPadding.png'
+import BackgroundPicture from "../assets/img/bg2.jpg";
+import Logo from "../assets/img/logoNoPadding.png";
 
 let User = {
   userName: "",
@@ -84,10 +84,16 @@ const Login = (props) => {
         style={[common.imageBg, common.positionAbsolute]}
       />
       {/* <Text>Login</Text> */}
-      <Image 
-      source={Logo}
-      style={{height:'300px',width:'300px',marginHorizontal:'auto',marginVertical:30,marginBottom:60}}
-      resizeMode={"contain"}
+      <Image
+        source={Logo}
+        style={{
+          height: "300px",
+          width: "300px",
+          marginHorizontal: "auto",
+          marginVertical: 30,
+          marginBottom: 60,
+        }}
+        resizeMode={"contain"}
       />
       <CustomInput
         callback={getValueUsername()}
@@ -103,9 +109,17 @@ const Login = (props) => {
       />
       <CustomButton
         onClickCallback={navigateToGame}
-        buttonContainerStyle={[common.squareButton, common.brandColorBg,common.centerItems]}
-        label={'GIOCA'}
-        buttonTextStyle={[common.boldFont,common.normalTextSize,common.secondaryColorText]}
+        buttonContainerStyle={[
+          common.squareButton,
+          common.brandColorBg,
+          common.centerItems,
+        ]}
+        label={"GIOCA"}
+        buttonTextStyle={[
+          common.boldFont,
+          common.normalTextSize,
+          common.secondaryColorText,
+        ]}
       />
     </View>
   );

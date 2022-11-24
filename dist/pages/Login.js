@@ -12,6 +12,8 @@ var _CustomInput = _interopRequireDefault(require("../components/customInput/Cus
 var _CustomButton = _interopRequireDefault(require("../components/customButton/CustomButton"));
 var _common = _interopRequireDefault(require("../styles/common"));
 var _getUsers = require("../utils/getUsers");
+var _bg = _interopRequireDefault(require("../assets/img/bg2.jpg"));
+var _logoNoPadding = _interopRequireDefault(require("../assets/img/logoNoPadding.png"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
@@ -119,18 +121,36 @@ var Login = function Login(props) {
     };
   }();
   return /*#__PURE__*/_react.default.createElement(_reactNative.View, {
-    style: _common.default.genericContainer
-  }, /*#__PURE__*/_react.default.createElement(_reactNative.Text, null, "Login"), /*#__PURE__*/_react.default.createElement(_CustomInput.default, {
+    style: [_common.default.fullScreenSize, _common.default.positionRelative]
+  }, /*#__PURE__*/_react.default.createElement(_reactNative.ImageBackground, {
+    source: _bg.default,
+    resizeMode: "cover",
+    style: [_common.default.imageBg, _common.default.positionAbsolute]
+  }), /*#__PURE__*/_react.default.createElement(_reactNative.Image, {
+    source: _logoNoPadding.default,
+    style: {
+      height: "300px",
+      width: "300px",
+      marginHorizontal: "auto",
+      marginVertical: 30,
+      marginBottom: 60
+    },
+    resizeMode: "contain"
+  }), /*#__PURE__*/_react.default.createElement(_CustomInput.default, {
     callback: getValueUsername(),
     styleCss: _common.default.inputBox,
-    placeholder: "inserisci userName"
+    placeholder: "inserisci userName",
+    placeholderColor: _common.default.brandColorText.color
   }), /*#__PURE__*/_react.default.createElement(_CustomInput.default, {
     callback: getValueEmail(),
     styleCss: _common.default.inputBox,
-    placeholder: "inserisci Email"
+    placeholder: "inserisci Email",
+    placeholderColor: _common.default.brandColorText.color
   }), /*#__PURE__*/_react.default.createElement(_CustomButton.default, {
     onClickCallback: navigateToGame,
-    buttonContainerStyle: [_common.default.squareButton, _common.default.brandColorBg]
+    buttonContainerStyle: [_common.default.squareButton, _common.default.brandColorBg, _common.default.centerItems],
+    label: "GIOCA",
+    buttonTextStyle: [_common.default.boldFont, _common.default.normalTextSize, _common.default.secondaryColorText]
   }));
 };
 var _default = Login;

@@ -20,14 +20,16 @@ var CustomInput = function CustomInput(props) {
     secureTextEntry: props.password,
     style: props.styleCss,
     onChangeText: typing,
-    placeholder: props.placeholder
+    placeholder: props.placeholder,
+    placeholderTextColor: props.placeholderColor
   }));
 };
 CustomInput.propTypes = {
   callback: _propTypes.default.any,
   styleCss: _propTypes.default.object,
   placeholder: _propTypes.default.string,
-  password: _propTypes.default.bool
+  password: _propTypes.default.bool,
+  placeholderColor: _propTypes.default.any
 };
 var _default = CustomInput;
 exports.default = _default;

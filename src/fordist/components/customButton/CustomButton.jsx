@@ -26,7 +26,7 @@ CustomButton.propTypes = {
   children: propTypes.any,
   label: propTypes.any,
   buttonContainerStyle: propTypes.any,
-  buttonTextStyle: propTypes.object,
+  buttonTextStyle: propTypes.any,
 };
 
 export default CustomButton;
