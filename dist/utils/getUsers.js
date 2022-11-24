@@ -4,7 +4,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.getUsers = void 0;
+exports.getUsers = exports.getCurrentUser = void 0;
 var _reactNative = require("react-native");
 var _asyncStorage = _interopRequireDefault(require("@react-native-async-storage/async-storage"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -45,3 +45,35 @@ var getUsers = /*#__PURE__*/function () {
   };
 }();
 exports.getUsers = getUsers;
+var getCurrentUser = /*#__PURE__*/function () {
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+    var oldUsers;
+    return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            oldUsers = [];
+            if (!(_reactNative.Platform.OS === "web")) {
+              _context2.next = 5;
+              break;
+            }
+            return _context2.abrupt("return", JSON.parse(localStorage.getItem("currentUser")));
+          case 5:
+            _context2.t0 = JSON;
+            _context2.next = 8;
+            return _asyncStorage.default.getItem("@currentUser");
+          case 8:
+            _context2.t1 = _context2.sent;
+            return _context2.abrupt("return", _context2.t0.parse.call(_context2.t0, _context2.t1));
+          case 10:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2);
+  }));
+  return function getCurrentUser() {
+    return _ref2.apply(this, arguments);
+  };
+}();
+exports.getCurrentUser = getCurrentUser;

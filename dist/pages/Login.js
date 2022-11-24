@@ -10,10 +10,10 @@ var _reactNative = require("react-native");
 var _asyncStorage = _interopRequireDefault(require("@react-native-async-storage/async-storage"));
 var _CustomInput = _interopRequireDefault(require("../components/customInput/CustomInput"));
 var _CustomButton = _interopRequireDefault(require("../components/customButton/CustomButton"));
-var _common = _interopRequireDefault(require("../styles/common"));
 var _getUsers = require("../utils/getUsers");
 var _bg = _interopRequireDefault(require("../assets/img/bg2.jpg"));
 var _logoNoPadding = _interopRequireDefault(require("../assets/img/logoNoPadding.png"));
+var _InputCustom;
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
@@ -32,7 +32,6 @@ var User = {
 };
 var oldUsers;
 var Login = function Login(props) {
-  var _ref3, _ref4;
   (0, _react.useEffect)(function () {
     console.log(_reactNative.Platform);
     setOldUsers();
@@ -94,112 +93,116 @@ var Login = function Login(props) {
                 }
               }
               if (!(_reactNative.Platform.OS === "web")) {
-                _context2.next = 8;
+                _context2.next = 9;
                 break;
               }
+              // salvo nella lista di tutti gli utentu
               localStorage.setItem("users", JSON.stringify(newUsers));
-              _context2.next = 17;
+              // salvo l'utente attualmente loggato
+              localStorage.setItem("currentUser", JSON.stringify(User));
+              _context2.next = 20;
               break;
-            case 8:
-              _context2.prev = 8;
+            case 9:
+              _context2.prev = 9;
               JSONnewUsers = JSON.stringify(newUsers);
-              _context2.next = 12;
+              _context2.next = 13;
               return _asyncStorage.default.setItem("@users", JSONnewUsers);
-            case 12:
-              _context2.next = 17;
+            case 13:
+              _context2.next = 15;
+              return _asyncStorage.default.setItem("@currentUser", JSON.stringify(User));
+            case 15:
+              _context2.next = 20;
               break;
-            case 14:
-              _context2.prev = 14;
-              _context2.t0 = _context2["catch"](8);
-              console.log(_context2.t0);
             case 17:
+              _context2.prev = 17;
+              _context2.t0 = _context2["catch"](9);
+              console.log(_context2.t0);
+            case 20:
               props.callback();
               //localStorage.clear();
-            case 18:
+            case 21:
             case "end":
               return _context2.stop();
           }
         }
-      }, _callee2, null, [[8, 14]]);
+      }, _callee2, null, [[9, 17]]);
     }));
     return function navigateToGame() {
       return _ref2.apply(this, arguments);
     };
   }();
   return /*#__PURE__*/_react.default.createElement(_reactNative.View, {
-    style: {
-      width: _reactNative.Dimensions.get("window").width,
-      height: _reactNative.Dimensions.get("window").height,
-      position: "relative"
-    }
+    style: styles.mainView
   }, /*#__PURE__*/_react.default.createElement(_reactNative.ImageBackground, {
     source: _bg.default,
-    resizeMode: "contain",
-    style: {
-      width: _reactNative.Dimensions.get("window").width,
-      height: _reactNative.Dimensions.get("window").height,
-      position: "absolute"
-    }
+    resizeMode: "cover",
+    style: styles.ImageBAckground
   }), /*#__PURE__*/_react.default.createElement(_reactNative.Image, {
     source: _logoNoPadding.default,
-    style: {
-      height: 300,
-      width: 300,
-      marginHorizontal: "auto",
-      marginVertical: 30,
-      marginBottom: 60
-    },
+    style: styles.LogoImage,
     resizeMode: "contain"
   }), /*#__PURE__*/_react.default.createElement(_CustomInput.default, {
     callback: getValueUsername(),
-    styleCss: (_ref3 = {
-      height: 40,
-      width: 300,
-      marginVertical: 12,
-      margin: "auto",
-      borderWidth: 5,
-      padding: 10,
-      backgroundColor: "transparent",
-      borderRadius: 3,
-      borderColor: brandColor
-    }, _defineProperty(_ref3, "borderWidth", 1), _defineProperty(_ref3, "backgroundColor", "#0000008a"), _defineProperty(_ref3, "color", brandColor), _ref3),
+    styleCss: styles.InputCustom,
     placeholder: "inserisci userName",
     placeholderColor: brandColor
   }), /*#__PURE__*/_react.default.createElement(_CustomInput.default, {
     callback: getValueEmail(),
-    styleCss: (_ref4 = {
-      height: 40,
-      width: 300,
-      marginVertical: 12,
-      margin: "auto",
-      borderWidth: 5,
-      padding: 10,
-      backgroundColor: "transparent",
-      borderRadius: 3,
-      borderColor: brandColor
-    }, _defineProperty(_ref4, "borderWidth", 1), _defineProperty(_ref4, "backgroundColor", "#0000008a"), _defineProperty(_ref4, "color", brandColor), _ref4),
+    styleCss: styles.InputCustom,
     placeholder: "inserisci Email",
     placeholderColor: brandColor
   }), /*#__PURE__*/_react.default.createElement(_CustomButton.default, {
     onClickCallback: navigateToGame,
-    buttonContainerStyle: {
-      borderRadius: 5,
-      width: 300,
-      height: 40,
-      marginHorizontal: "auto",
-      marginVertical: 30,
-      backgroundColor: brandColor,
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center"
-    },
+    buttonContainerStyle: styles.ButtonContainerStyle,
     label: "GIOCA",
-    buttonTextStyle: {
-      fontWeight: "bold",
-      fontSize: 30,
-      color: secondaryColor
-    }
+    buttonTextStyle: styles.ButtonTextStyle
   }));
 };
 var _default = Login;
 exports.default = _default;
+var styles = _reactNative.StyleSheet.create({
+  mainView: {
+    width: _reactNative.Dimensions.get("window").width,
+    height: _reactNative.Dimensions.get("window").height,
+    position: "relative",
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center'
+  },
+  ImageBAckground: {
+    width: _reactNative.Dimensions.get("window").width,
+    height: _reactNative.Dimensions.get("window").height,
+    position: "absolute"
+  },
+  LogoImage: {
+    height: 300,
+    width: 300,
+    marginVertical: 30,
+    marginBottom: 60
+  },
+  InputCustom: (_InputCustom = {
+    height: 40,
+    width: 300,
+    marginVertical: 12,
+    borderWidth: 5,
+    padding: 10,
+    backgroundColor: "transparent",
+    borderRadius: 3,
+    borderColor: brandColor
+  }, _defineProperty(_InputCustom, "borderWidth", 1), _defineProperty(_InputCustom, "backgroundColor", "#0000008a"), _defineProperty(_InputCustom, "color", brandColor), _InputCustom),
+  ButtonContainerStyle: {
+    borderRadius: 5,
+    width: 300,
+    height: 40,
+    marginVertical: 30,
+    backgroundColor: brandColor,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  ButtonTextStyle: {
+    fontWeight: "bold",
+    fontSize: 30,
+    color: secondaryColor
+  }
+});
