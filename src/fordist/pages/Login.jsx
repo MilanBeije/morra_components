@@ -1,9 +1,14 @@
 //React functionalities
 import React, { useEffect } from "react";
-import { Platform } from "react-native";
 
 //Native components
-import { Image, View, ImageBackground } from "react-native";
+import {
+  Image,
+  View,
+  ImageBackground,
+  Platform,
+  Dimensions,
+} from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 //Components
@@ -82,14 +87,20 @@ const Login = (props) => {
     //localStorage.clear();
   };
   return (
-    <View style={[common.fullScreenSize, common.positionRelative]}>
+    <View
+      style={{
+        width: Dimensions.get("window").width,
+        height: Dimensions.get("window").height,
+        position: "relative",
+      }}
+    >
       <ImageBackground
         source={BackgroundPicture}
         resizeMode={"cover"}
         style={{
           width: "100%",
           height: "100%",
-          position: "absolute"
+          position: "absolute",
         }}
       />
       {/* <Text>Login</Text> */}
@@ -110,15 +121,15 @@ const Login = (props) => {
           height: 40,
           width: 300,
           marginVertical: 12,
-          margin:'auto',
+          margin: "auto",
           borderWidth: 5,
           padding: 10,
           backgroundColor: "transparent",
           borderRadius: 3,
-          borderColor:brandColor,
-          borderWidth:1,
-          backgroundColor:'#0000008a',
-          color:brandColor
+          borderColor: brandColor,
+          borderWidth: 1,
+          backgroundColor: "#0000008a",
+          color: brandColor,
         }}
         placeholder={"inserisci userName"}
         placeholderColor={brandColor}
@@ -129,15 +140,15 @@ const Login = (props) => {
           height: 40,
           width: 300,
           marginVertical: 12,
-          margin:'auto',
+          margin: "auto",
           borderWidth: 5,
           padding: 10,
           backgroundColor: "transparent",
           borderRadius: 3,
-          borderColor:brandColor,
-          borderWidth:1,
-          backgroundColor:'#0000008a',
-          color:brandColor
+          borderColor: brandColor,
+          borderWidth: 1,
+          backgroundColor: "#0000008a",
+          color: brandColor,
         }}
         placeholder={"inserisci Email"}
         placeholderColor={brandColor}
@@ -147,19 +158,19 @@ const Login = (props) => {
         buttonContainerStyle={{
           borderRadius: 5,
           width: 300,
-          height:40,
-          marginHorizontal:'auto',
-          marginVertical:30,
-          backgroundColor:brandColor,
+          height: 40,
+          marginHorizontal: "auto",
+          marginVertical: 30,
+          backgroundColor: brandColor,
           display: "flex",
           justifyContent: "center",
-          alignItems: "center"
+          alignItems: "center",
         }}
         label={"GIOCA"}
         buttonTextStyle={{
-          fontWeight:'bold',
-          fontSize:30,
-          color:secondaryColor
+          fontWeight: "bold",
+          fontSize: 30,
+          color: secondaryColor,
         }}
       />
     </View>
@@ -167,4 +178,3 @@ const Login = (props) => {
 };
 
 export default Login;
-

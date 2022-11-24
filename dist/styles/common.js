@@ -8,6 +8,7 @@ var _reactNative = require("react-native");
 var _inputBox;
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 var brandColor = "#F752E0";
+var secondaryColor = "#3DD8FC";
 var _default = _reactNative.StyleSheet.create({
   genericContainer: {
     flex: 1
@@ -199,6 +200,11 @@ var _default = _reactNative.StyleSheet.create({
   },
   zIndexMax: {
     zIndex: 100
+  },
+  buttonTextSynthAzure: {
+    fontWeight: 'bold',
+    fontSize: 30,
+    color: secondaryColor
   }
 });
 exports.default = _default;
