@@ -92,11 +92,14 @@ const Login = (props) => {
         width: Dimensions.get("window").width,
         height: Dimensions.get("window").height,
         position: "relative",
+        display:'flex',
+        flexDirection:'column',
+        alignItems:'center'
       }}
     >
       <ImageBackground
         source={BackgroundPicture}
-        resizeMode={"contain"}
+        resizeMode={"cover"}
         style={{
           width: Dimensions.get("window").width,
           height: Dimensions.get("window").height,
@@ -109,7 +112,6 @@ const Login = (props) => {
         style={{
           height: 300,
           width: 300,
-          marginHorizontal: "auto",
           marginVertical: 30,
           marginBottom: 60,
         }}
@@ -121,7 +123,6 @@ const Login = (props) => {
           height: 40,
           width: 300,
           marginVertical: 12,
-          margin: "auto",
           borderWidth: 5,
           padding: 10,
           backgroundColor: "transparent",
@@ -140,7 +141,6 @@ const Login = (props) => {
           height: 40,
           width: 300,
           marginVertical: 12,
-          margin: "auto",
           borderWidth: 5,
           padding: 10,
           backgroundColor: "transparent",
@@ -159,7 +159,6 @@ const Login = (props) => {
           borderRadius: 5,
           width: 300,
           height: 40,
-          marginHorizontal: "auto",
           marginVertical: 30,
           backgroundColor: brandColor,
           display: "flex",
