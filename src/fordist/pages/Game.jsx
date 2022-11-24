@@ -137,8 +137,8 @@ const Game = (props) => {
   };
 
   const navigateToRanking = () => {
-    console.log("naivga alla classifica");
-    // props.navigateToRankingCallback()
+    // console.log("naivga alla classifica");
+    props.navigateToRankingCallback()
   };
   const navigateToGame = () => {
     setState({
@@ -205,16 +205,16 @@ const Game = (props) => {
         <View style={{ flex: 1 }}>
           <View className="statusGame" style={styles.statusGame}>
             <View className="attempts">
-              <Text>ROUND {state.attempts}</Text>
+              <Text style={{color:brandColor,fontWeight:'bold'}}>ROUND {state.attempts}</Text>
             </View>
             <View
               className="points"
               style={{ display: "flex", flexDirection: "row" }}
             >
-              <Text style={{ marginRight: 10 }}>
+              <Text style={{ marginRight: 10 ,color:brandColor,fontWeight:'bold'}}>
                 {state.player.userName} {state.userPoints}
               </Text>
-              <Text>CPU {state.cpuPoints}</Text>
+              <Text style={{color:brandColor,fontWeight:'bold'}}>CPU {state.cpuPoints}</Text>
             </View>
           </View>
 
@@ -232,8 +232,8 @@ const Game = (props) => {
                   <Image
                     source={element}
                     style={{
-                      width: 60,
-                      height: 60,
+                      width: 100,
+                      height: 100,
                     }}
                     resizeMode={"contain"}
                   />
@@ -260,7 +260,7 @@ const Game = (props) => {
                   flexDirection: "column",
                   alignItems: "center",
                   position: "absolute",
-                  height: 270,
+                  height: 350,
                   width: 200,
                   backgroundColor: "#000000d1",
                   zIndex: 10,
@@ -276,8 +276,8 @@ const Game = (props) => {
                   <Image
                     source={winBattle}
                     style={{
-                      width: 100,
-                      height: 100,
+                      width: 150,
+                      height: 150,
                     }}
                     resizeMode={"contain"}
                   />
@@ -370,8 +370,8 @@ const Game = (props) => {
                 <Image
                   source={play}
                   style={{
-                    width: 60,
-                    height: 60,
+                    width: 200,
+                    height: 200,
                   }}
                   resizeMode={"contain"}
                 />
@@ -395,8 +395,8 @@ const Game = (props) => {
                     <Image
                       source={element}
                       style={{
-                        width: 60,
-                        height: 60,
+                        width: 100,
+                        height: 100,
                       }}
                       resizeMode={"contain"}
                     />
@@ -435,12 +435,12 @@ const Game = (props) => {
             }}
           >
             <View style={{ display: "flex", flexDirection: "column" }}>
-              <Text>{state.player.userName}</Text>
-              <Text>{state.userPoints}</Text>
+              <Text style={{color:brandColor,fontSize:20,fontWeight:'bold'}}>{state.player.userName}</Text>
+              <Text style={{color:brandColor,fontSize:20,fontWeight:'bold'}}>{state.userPoints}</Text>
             </View>
             <View style={{ display: "flex", flexDirection: "column" }}>
-              <Text>Cpu</Text>
-              <Text>{state.cpuPoints}</Text>
+              <Text style={{color:tertiaryColor,fontSize:20,fontWeight:'bold'}}>Cpu</Text>
+              <Text style={{color:tertiaryColor,fontSize:20,fontWeight:'bold'}}>{state.cpuPoints}</Text>
             </View>
           </View>
           <CustomButton
