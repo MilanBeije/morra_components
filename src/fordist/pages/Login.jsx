@@ -72,11 +72,16 @@ const Login = (props) => {
       }
     }
     if (Platform.OS === "web") {
+      // salvo nella lista di tutti gli utentu
       localStorage.setItem("users", JSON.stringify(newUsers));
+      // salvo l'utente attualmente loggato
+      localStorage.setItem("currentUser",JSON.stringify(User));
     } else {
       try {
         const JSONnewUsers = JSON.stringify(newUsers);
         await AsyncStorage.setItem("@users", JSONnewUsers);
+        // salvo l'utente corrente
+        await AsyncStorage.setItem("@currentUser", JSON.stringify(User));
       } catch (e) {
         console.log(e);
       }
