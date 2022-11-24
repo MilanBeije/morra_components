@@ -8,15 +8,13 @@ import {
   ImageBackground,
   Platform,
   Dimensions,
+  StyleSheet
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 //Components
 import CustomInput from "../components/customInput/CustomInput";
 import CustomButton from "../components/customButton/CustomButton";
-
-//styles
-import common from "../styles/common";
 
 //utils
 import { getUsers } from "../utils/getUsers";
@@ -88,92 +86,89 @@ const Login = (props) => {
   };
   return (
     <View
-      style={{
-        width: Dimensions.get("window").width,
-        height: Dimensions.get("window").height,
-        position: "relative",
-        display:'flex',
-        flexDirection:'column',
-        alignItems:'center'
-      }}
+      style={styles.mainView}
     >
       <ImageBackground
         source={BackgroundPicture}
         resizeMode={"cover"}
-        style={{
-          width: Dimensions.get("window").width,
-          height: Dimensions.get("window").height,
-          position: "absolute",
-        }}
+        style={styles.ImageBAckground}
       />
       {/* <Text>Login</Text> */}
       <Image
         source={Logo}
-        style={{
-          height: 300,
-          width: 300,
-          marginVertical: 30,
-          marginBottom: 60,
-        }}
+        style={styles.LogoImage}
         resizeMode={"contain"}
       />
       <CustomInput
         callback={getValueUsername()}
-        styleCss={{
-          height: 40,
-          width: 300,
-          marginVertical: 12,
-          borderWidth: 5,
-          padding: 10,
-          backgroundColor: "transparent",
-          borderRadius: 3,
-          borderColor: brandColor,
-          borderWidth: 1,
-          backgroundColor: "#0000008a",
-          color: brandColor,
-        }}
+        styleCss={styles.InputCustom}
         placeholder={"inserisci userName"}
         placeholderColor={brandColor}
       />
       <CustomInput
         callback={getValueEmail()}
-        styleCss={{
-          height: 40,
-          width: 300,
-          marginVertical: 12,
-          borderWidth: 5,
-          padding: 10,
-          backgroundColor: "transparent",
-          borderRadius: 3,
-          borderColor: brandColor,
-          borderWidth: 1,
-          backgroundColor: "#0000008a",
-          color: brandColor,
-        }}
+        styleCss={styles.InputCustom}
         placeholder={"inserisci Email"}
         placeholderColor={brandColor}
       />
       <CustomButton
         onClickCallback={navigateToGame}
-        buttonContainerStyle={{
-          borderRadius: 5,
-          width: 300,
-          height: 40,
-          marginVertical: 30,
-          backgroundColor: brandColor,
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
+        buttonContainerStyle={styles.ButtonContainerStyle}
         label={"GIOCA"}
-        buttonTextStyle={{
-          fontWeight: "bold",
-          fontSize: 30,
-          color: secondaryColor,
-        }}
+        buttonTextStyle={styles.ButtonTextStyle}
       />
     </View>
   );
 };
 
 export default Login;
+
+const styles = StyleSheet.create({
+  mainView:{
+    width: Dimensions.get("window").width,
+    height: Dimensions.get("window").height,
+    position: "relative",
+    display:'flex',
+    flexDirection:'column',
+    alignItems:'center'
+  },
+  ImageBAckground : {
+    width: Dimensions.get("window").width,
+    height: Dimensions.get("window").height,
+    position: "absolute",
+  },
+  LogoImage:{
+    height: 300,
+    width: 300,
+    marginVertical: 30,
+    marginBottom: 60,
+  },
+  InputCustom:{
+    height: 40,
+    width: 300,
+    marginVertical: 12,
+    borderWidth: 5,
+    padding: 10,
+    backgroundColor: "transparent",
+    borderRadius: 3,
+    borderColor: brandColor,
+    borderWidth: 1,
+    backgroundColor: "#0000008a",
+    color: brandColor,
+  },
+  ButtonContainerStyle:{
+    borderRadius: 5,
+    width: 300,
+    height: 40,
+    marginVertical: 30,
+    backgroundColor: brandColor,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  ButtonTextStyle:{
+    fontWeight: "bold",
+    fontSize: 30,
+    color: secondaryColor,
+  }
+})
