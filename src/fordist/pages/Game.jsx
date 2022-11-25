@@ -86,7 +86,8 @@ const Game = (props) => {
       if (state.allUsers.length > 0) {
         // cycle the players to find the same email
         state.allUsers.forEach((element) => {
-          if (element.mail === currentUser.mail) {
+          console.log(element.email,currentUser.email);
+          if (element.email === currentUser.email) {
             element.gameWon += currentUser.gameWon;
           }
         });

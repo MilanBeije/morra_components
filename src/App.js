@@ -15,8 +15,8 @@ function App() {
         }}
       /> */}
       {/* <Login /> */}
-      {/* <Game/> */}
-      <Ranking/>
+      <Game/>
+      {/* <Ranking/> */}
     </div>
   );
 }
