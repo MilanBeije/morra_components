@@ -15,12 +15,12 @@ function App() {
         }}
       /> */}
 
-      <div className="login">
+      {/* <div className="login">
         <Ranking/>
-      </div>
+      </div> */}
 
         {/* <Login /> */}
-      {/* <Game/> */}
+      <Game/>
     </div>
   );
 }

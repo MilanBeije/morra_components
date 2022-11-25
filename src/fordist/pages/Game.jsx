@@ -48,6 +48,29 @@ let modalResult;
 let currentUser;
 let actualAttempts;
 
+// websocket
+var ws = new WebSocket('wss://socketsbay.com/wss/v2/1/8640c503f2738201c8205df96a493362/');
+
+ws.onopen = () => {
+  // connection opened
+  ws.send('test'); // send a message
+};
+
+ws.onmessage = (e) => {
+  // a message was received
+  console.log(e.data);
+};
+
+ws.onerror = (e) => {
+  // an error occurred
+  console.log(e.message);
+};
+
+ws.onclose = (e) => {
+  // connection closed
+  console.log(e.code, e.reason);
+};
+
 const Game = (props) => {
   // stati
   const [state, setState] = useState({
@@ -66,6 +89,10 @@ const Game = (props) => {
 
   useEffect(() => {
     getUserData();
+    ws.onopen = () => {
+      // connection opened
+      ws.send('test'); // send a message
+    };
   }, []);
 
   useEffect(() => {
@@ -163,6 +190,18 @@ const Game = (props) => {
     modalResult = state.showResult;
     // randome cpu choice
     let randomCpuChoice = Math.floor(Math.random() * 3);
+    let sendThisUser = [{
+      name:'user',
+      choice: state.movesUser
+    },
+    {
+      name:'cpu',
+      choice: randomCpuChoice
+    }
+  ]
+    let objectString = JSON.stringify(sendThisUser)
+    ws.send(objectString);
+    // ws.send(randomCpuChoice);
     // eseguo il risultato
     let battleResult = GameResult(state.movesUser, randomCpuChoice);
     console.log(battleResult);
