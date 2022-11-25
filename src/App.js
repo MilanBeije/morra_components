@@ -7,15 +7,19 @@ import Ranking from "./fordist/pages/Ranking";
 
 function App() {
   return (
-    <div className="App">
+    <div className="container">
       {/* <CustomButton
         onClickCallback={() => {
           const risultato = GameResult(1, 2);
           console.log(risultato);
         }}
       /> */}
-      {/* <Login /> */}
-      <Game/>
+
+      <div className="login">
+        <Login />
+      </div>
+
+      {/* <Game/> */}
       {/* <Ranking/> */}
     </div>
   );

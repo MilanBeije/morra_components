@@ -86,7 +86,7 @@ const Game = (props) => {
       if (state.allUsers.length > 0) {
         // cycle the players to find the same email
         state.allUsers.forEach((element) => {
-          console.log(element.email,currentUser.email);
+          console.log(element.email, currentUser.email);
           if (element.email === currentUser.email) {
             element.gameWon += currentUser.gameWon;
           }
@@ -528,8 +528,8 @@ export default Game;
 
 const styles = StyleSheet.create({
   mainView: {
-    width: Dimensions.get("window").width,
-    height: Dimensions.get("window").height,
+    width: "100%",
+    height: "100%",
     position: "relative",
     display: "flex",
     flexDirection: "column",
@@ -541,11 +541,6 @@ const styles = StyleSheet.create({
     padding: 10,
     borderBottomColor: brandColor,
     borderBottomWidth: 2,
-  },
-  ImageBAckground: {
-    width: Dimensions.get("window").width,
-    height: Dimensions.get("window").height,
-    position: "absolute",
   },
   LogoImage: {
     height: 300,

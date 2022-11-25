@@ -8,7 +8,7 @@ import {
   ImageBackground,
   Platform,
   Dimensions,
-  StyleSheet
+  StyleSheet,
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
@@ -75,7 +75,7 @@ const Login = (props) => {
       // salvo nella lista di tutti gli utentu
       localStorage.setItem("users", JSON.stringify(newUsers));
       // salvo l'utente attualmente loggato
-      localStorage.setItem("currentUser",JSON.stringify(User));
+      localStorage.setItem("currentUser", JSON.stringify(User));
     } else {
       try {
         const JSONnewUsers = JSON.stringify(newUsers);
@@ -90,20 +90,14 @@ const Login = (props) => {
     //localStorage.clear();
   };
   return (
-    <View
-      style={styles.mainView}
-    >
+    <View style={styles.mainView}>
       <ImageBackground
         source={BackgroundPicture}
         resizeMode={"cover"}
         style={styles.ImageBAckground}
       />
       {/* <Text>Login</Text> */}
-      <Image
-        source={Logo}
-        style={styles.LogoImage}
-        resizeMode={"contain"}
-      />
+      <Image source={Logo} style={styles.LogoImage} resizeMode={"contain"} />
       <CustomInput
         callback={getValueUsername()}
         styleCss={styles.InputCustom}
@@ -129,26 +123,26 @@ const Login = (props) => {
 export default Login;
 
 const styles = StyleSheet.create({
-  mainView:{
-    width: Dimensions.get("window").width,
-    height: Dimensions.get("window").height,
+  mainView: {
+    width: "100%",
+    height: "100%",
     position: "relative",
-    display:'flex',
-    flexDirection:'column',
-    alignItems:'center'
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   },
-  ImageBAckground : {
-    width: Dimensions.get("window").width,
-    height: Dimensions.get("window").height,
+  ImageBAckground: {
+    width: "100%",
+    height: "100%",
     position: "absolute",
   },
-  LogoImage:{
+  LogoImage: {
     height: 300,
     width: 300,
     marginVertical: 30,
     marginBottom: 60,
   },
-  InputCustom:{
+  InputCustom: {
     height: 40,
     width: 300,
     marginVertical: 12,
@@ -161,7 +155,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#0000008a",
     color: brandColor,
   },
-  ButtonContainerStyle:{
+  ButtonContainerStyle: {
     borderRadius: 5,
     width: 300,
     height: 40,
@@ -171,9 +165,9 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  ButtonTextStyle:{
+  ButtonTextStyle: {
     fontWeight: "bold",
     fontSize: 30,
     color: secondaryColor,
-  }
-})
+  },
+});

@@ -10,6 +10,7 @@ import {
   Dimensions,
   ImageBackground,
   StyleSheet,
+  ScrollView,
 } from "react-native";
 
 //Components
@@ -38,7 +39,7 @@ const Ranking = (props) => {
 
   const setOldUsers = async () => {
     oldUsers = await getUsers();
-    oldUsers.sort((a, b) => (a.score > b.score ? -1 : 1))
+    oldUsers.sort((a, b) => (a.score > b.score ? -1 : 1));
     setUsers(oldUsers);
   };
 
@@ -46,30 +47,34 @@ const Ranking = (props) => {
     props.callback();
   };
 
-  const keyExtractor = (item,idx) => {
-    return item?.id?.toString() || idx?.toString()
-  }
+  const keyExtractor = (item, idx) => {
+    return item?.id?.toString() || idx?.toString();
+  };
 
-  const renderItem = ({item}) => {
-    return(
-        <View
+  const renderItem = ({ item }) => {
+    return (
+      <View
         style={{
           display: "flex",
           justifyContent: "space-between",
           flexDirection: "row",
           width: 300,
-          padding:10
+          padding: 10,
         }}
       >
-        <Text style={{color: secondaryColor,fontSize:18}}>{item.userName}</Text>
-        <Text style={{color: secondaryColor,fontSize:18}}>{item.gameWon}</Text>
+        <Text style={{ color: secondaryColor, fontSize: 18 }}>
+          {item.userName}
+        </Text>
+        <Text style={{ color: secondaryColor, fontSize: 18 }}>
+          {item.gameWon}
+        </Text>
       </View>
-    )
-  }
+    );
+  };
 
   return (
-    <View style={styles.mainView}>
-        <ImageBackground
+    <ScrollView style={styles.mainView}>
+      <ImageBackground
         source={BackgroundPicture}
         resizeMode={"cover"}
         style={styles.ImageBAckground}
@@ -82,26 +87,44 @@ const Ranking = (props) => {
             borderBottomWidth: 3,
             color: brandColor,
             fontWeight: "bold",
-            fontSize: 50,
+            fontSize: 40,
+            textAlign: "center",
           }}
         >
           CLASSIFICA
         </Text>
       </View>
-      <View style={{ display:'flex', alignItems: "center" }}>
+      <View style={{ display: "flex", alignItems: "center" }}>
         <Image
           source={boss}
           style={{
             width: 200,
             height: 200,
-            transform:[{rotate: '-10deg'}]
+            transform: [{ rotate: "-10deg" }],
           }}
         />
       </View>
-      <View style={{ flex: 1, alignItems: "center" ,backgroundColor: "#0000008a",width:300,margin:'auto',borderRadius:5,borderWidth:3,borderColor:tertiaryColor,paddingVertical:10}}>
-          <FlatList data={allUsers} renderItem={renderItem} keyExtractor={keyExtractor}/>
+      <View
+        style={{
+          flex: 1,
+          alignItems: "center",
+          backgroundColor: "#0000008a",
+          width: 300,
+          margin: "auto",
+          borderRadius: 5,
+          borderWidth: 3,
+          borderColor: tertiaryColor,
+          paddingVertical: 10,
+          alignSelf: "center",
+        }}
+      >
+        <FlatList
+          data={allUsers}
+          renderItem={renderItem}
+          keyExtractor={keyExtractor}
+        />
       </View>
-      <View style={{display:'flex',alignItems:'center'}}>
+      <View style={{ display: "flex", alignItems: "center" }}>
         <CustomButton
           onClickCallback={navigateToGame}
           buttonContainerStyle={{
@@ -109,7 +132,6 @@ const Ranking = (props) => {
             width: 300,
             height: 40,
             marginVertical: 10,
-            // backgroundColor: tertiaryColor,
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
@@ -119,7 +141,7 @@ const Ranking = (props) => {
             fontWeight: "bold",
             fontSize: 30,
             color: brandColor,
-            textDecorationLine: "underline"
+            textDecorationLine: "underline",
           }}
         />
         <CustomButton
@@ -142,7 +164,7 @@ const Ranking = (props) => {
           }}
         />
       </View>
-    </View>
+    </ScrollView>
   );
 };
 

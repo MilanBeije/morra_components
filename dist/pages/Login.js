@@ -162,16 +162,16 @@ var _default = Login;
 exports.default = _default;
 var styles = _reactNative.StyleSheet.create({
   mainView: {
-    width: _reactNative.Dimensions.get("window").width,
-    height: _reactNative.Dimensions.get("window").height,
+    width: "100%",
+    height: "100%",
     position: "relative",
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center'
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center"
   },
   ImageBAckground: {
-    width: _reactNative.Dimensions.get("window").width,
-    height: _reactNative.Dimensions.get("window").height,
+    width: "100%",
+    height: "100%",
     position: "absolute"
   },
   LogoImage: {
