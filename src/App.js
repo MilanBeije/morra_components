@@ -3,6 +3,7 @@ import CustomButton from "./fordist/components/customButton/CustomButton";
 import { GameResult } from "./fordist/utils/GameResult";
 import Login from "./fordist/pages/Login";
 import Game from "./fordist/pages/Game";
+import Ranking from "./fordist/pages/Ranking";
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
         }}
       /> */}
       {/* <Login /> */}
-      <Game/>
+      {/* <Game/> */}
+      <Ranking/>
     </div>
   );
 }
