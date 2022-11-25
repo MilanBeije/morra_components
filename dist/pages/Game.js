@@ -180,10 +180,9 @@ var Game = function Game(props) {
     }));
   };
   var navigateToRanking = function navigateToRanking() {
-    console.log("naivga alla classifica");
-    // props.navigateToRankingCallback()
+    // console.log("naivga alla classifica");
+    props.navigateToRankingCallback();
   };
-
   var navigateToGame = function navigateToGame() {
     setState(_objectSpread(_objectSpread({}, state), {}, {
       endGame: false,
@@ -256,7 +255,12 @@ var Game = function Game(props) {
     style: styles.statusGame
   }, /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     className: "attempts"
-  }, /*#__PURE__*/_react.default.createElement(_reactNative.Text, null, "ROUND ", state.attempts)), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
+  }, /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
+    style: {
+      color: brandColor,
+      fontWeight: "bold"
+    }
+  }, "ROUND ", state.attempts)), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     className: "points",
     style: {
       display: "flex",
@@ -264,13 +268,21 @@ var Game = function Game(props) {
     }
   }, /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
     style: {
-      marginRight: 10
+      marginRight: 10,
+      color: brandColor,
+      fontWeight: "bold"
     }
-  }, state.player.userName, " ", state.userPoints), /*#__PURE__*/_react.default.createElement(_reactNative.Text, null, "CPU ", state.cpuPoints))), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
+  }, state.player.userName, " ", state.userPoints, " |"), /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
+    style: {
+      color: brandColor,
+      fontWeight: "bold"
+    }
+  }, "Cpu ", state.cpuPoints))), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     style: {
       flex: 1,
       flexDirection: "row",
-      justifyContent: "space-around"
+      justifyContent: "space-around",
+      marginTop: 20
     }
   }, IconArray.map(function (element, key) {
     return /*#__PURE__*/_react.default.createElement(_reactNative.View, {
@@ -278,8 +290,8 @@ var Game = function Game(props) {
     }, /*#__PURE__*/_react.default.createElement(_reactNative.Image, {
       source: element,
       style: {
-        width: 60,
-        height: 60
+        width: 100,
+        height: 100
       },
       resizeMode: "contain"
     }));
@@ -296,7 +308,7 @@ var Game = function Game(props) {
       flexDirection: "column",
       alignItems: "center",
       position: "absolute",
-      height: 270,
+      height: 350,
       width: 200,
       backgroundColor: "#000000d1",
       zIndex: 10,
@@ -308,22 +320,22 @@ var Game = function Game(props) {
   }, state.showResult === 1 && /*#__PURE__*/_react.default.createElement(_reactNative.Image, {
     source: _cool.default,
     style: {
-      width: 100,
-      height: 100
+      width: 150,
+      height: 150
     },
     resizeMode: "contain"
   }), state.showResult === 2 && /*#__PURE__*/_react.default.createElement(_reactNative.Image, {
     source: _oops.default,
     style: {
-      width: 100,
-      height: 100
+      width: 150,
+      height: 150
     },
     resizeMode: "contain"
   }), state.showResult === 3 && /*#__PURE__*/_react.default.createElement(_reactNative.Image, {
     source: _versus.default,
     style: {
-      width: 100,
-      height: 100
+      width: 150,
+      height: 150
     },
     resizeMode: "contain"
   }), /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
@@ -365,8 +377,8 @@ var Game = function Game(props) {
     children: /*#__PURE__*/_react.default.createElement(_reactNative.Image, {
       source: _play.default,
       style: {
-        width: 60,
-        height: 60
+        width: 200,
+        height: 200
       },
       resizeMode: "contain"
     })
@@ -385,16 +397,16 @@ var Game = function Game(props) {
     }, /*#__PURE__*/_react.default.createElement(_reactNative.Image, {
       source: element,
       style: {
-        width: 60,
-        height: 60
+        width: 100,
+        height: 100
       },
       resizeMode: "contain"
     })));
   }))) : /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     style: {
       flex: 1,
-      flexDirection: 'column',
-      alignItems: 'center'
+      flexDirection: "column",
+      alignItems: "center"
     }
   }, state.win ? /*#__PURE__*/_react.default.createElement(_reactNative.Image, {
     source: _win.default,
@@ -414,25 +426,50 @@ var Game = function Game(props) {
       flexDirection: "row",
       justifyContent: "space-around",
       marginHorizontal: 10,
-      width: 300
+      width: 300,
+      marginVertical: 50
     }
   }, /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     style: {
       display: "flex",
       flexDirection: "column"
     }
-  }, /*#__PURE__*/_react.default.createElement(_reactNative.Text, null, state.player.userName), /*#__PURE__*/_react.default.createElement(_reactNative.Text, null, state.userPoints)), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
+  }, /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
+    style: {
+      color: brandColor,
+      fontSize: 20,
+      fontWeight: "bold"
+    }
+  }, state.player.userName), /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
+    style: {
+      color: brandColor,
+      fontSize: 20,
+      fontWeight: "bold"
+    }
+  }, state.userPoints)), /*#__PURE__*/_react.default.createElement(_reactNative.View, {
     style: {
       display: "flex",
       flexDirection: "column"
     }
-  }, /*#__PURE__*/_react.default.createElement(_reactNative.Text, null, "Cpu"), /*#__PURE__*/_react.default.createElement(_reactNative.Text, null, state.cpuPoints))), /*#__PURE__*/_react.default.createElement(_CustomButton.default, {
+  }, /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
+    style: {
+      color: tertiaryColor,
+      fontSize: 20,
+      fontWeight: "bold"
+    }
+  }, "Cpu"), /*#__PURE__*/_react.default.createElement(_reactNative.Text, {
+    style: {
+      color: tertiaryColor,
+      fontSize: 20,
+      fontWeight: "bold"
+    }
+  }, state.cpuPoints))), /*#__PURE__*/_react.default.createElement(_CustomButton.default, {
     onClickCallback: navigateToRanking,
     buttonContainerStyle: {
       borderRadius: 5,
       width: 300,
       height: 40,
-      marginVertical: 30,
+      marginVertical: 10,
       backgroundColor: tertiaryColor,
       display: "flex",
       justifyContent: "center",
@@ -446,7 +483,16 @@ var Game = function Game(props) {
     }
   }), /*#__PURE__*/_react.default.createElement(_CustomButton.default, {
     onClickCallback: navigateToGame,
-    buttonContainerStyle: styles.ButtonContainerStyle,
+    buttonContainerStyle: {
+      borderRadius: 5,
+      width: 300,
+      height: 40,
+      marginVertical: 10,
+      backgroundColor: brandColor,
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center"
+    },
     label: "RIGIOCA",
     buttonTextStyle: {
       fontWeight: "bold",
