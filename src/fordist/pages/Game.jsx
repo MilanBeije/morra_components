@@ -230,20 +230,20 @@ const Game = (props) => {
           {/* cpu moves */}
           <View
             style={{
-              flex: 1,
+              display:'flex',
               flexDirection: "row",
               justifyContent: "space-around",
-              marginTop: 20,
+              height:'20%'
             }}
           >
             {IconArray.map((element, key) => {
               return (
-                <View key={key}>
+                <View key={key} style={{height:'100%'}}>
                   <Image
                     source={element}
                     style={{
                       width: 100,
-                      height: 100,
+                      height: '100%',
                     }}
                     resizeMode={"contain"}
                   />
@@ -255,7 +255,8 @@ const Game = (props) => {
           {/* get result */}
           <View
             style={{
-              flex: 4,
+              display:'flex',
+              height:'55%',
               justifyContent: "center",
               alignItems: "center",
               position: "relative",
@@ -266,11 +267,12 @@ const Game = (props) => {
             {state.showResult !== 0 && (
               <View
                 style={{
-                  flex: 1,
+                  display:'flex',
+                  height:'90%',
                   flexDirection: "column",
                   alignItems: "center",
                   position: "absolute",
-                  height: 350,
+                  // height: 350,
                   width: 200,
                   backgroundColor: "#000000d1",
                   zIndex: 10,
@@ -392,7 +394,8 @@ const Game = (props) => {
           {/* user moves */}
           <View
             style={{
-              flex: 2,
+              display:'flex',
+              height:'20%',
               flexDirection: "row",
               justifyContent: "space-around",
               zIndex: 5,
@@ -400,13 +403,13 @@ const Game = (props) => {
           >
             {IconArray.map((element, key, index) => {
               return (
-                <View key={key}>
-                  <TouchableOpacity onPress={getUserMove(key)}>
+                <View key={key} style={{height:'100%'}}>
+                  <TouchableOpacity style={{height:'100%'}} onPress={getUserMove(key)}>
                     <Image
                       source={element}
                       style={{
                         width: 100,
-                        height: 100,
+                        height: '100%',
                       }}
                       resizeMode={"contain"}
                     />
@@ -418,33 +421,38 @@ const Game = (props) => {
         </View>
       ) : (
         <View
-          style={{ flex: 1, flexDirection: "column", alignItems: "center" }}
+          style={{ display:'flex' ,flexDirection: "column", alignItems: "center",height:'100%' }}
         >
           {state.win ? (
-            <Image
-              source={winGame}
-              style={{
-                width: 300,
-                height: 300,
-              }}
-            />
+            <View style={{display:'flex',height:'40%',justifyContent:'center',alignItems:'center'}}>
+              <Image
+                source={winGame}
+                style={{
+                  width: 300,
+                  height: 300,
+                }}
+              />
+            </View>
           ) : (
-            <Image
-              source={gameover}
-              style={{
-                width: 300,
-                height: 300,
-              }}
-            />
+            <View style={{display:'flex',height:'40%',justifyContent:'center',alignItems:'center'}}>
+              <Image
+                source={gameover}
+                style={{
+                  width: 300,
+                  height: 300,
+                }}
+              />
+            </View>
           )}
           <View
             style={{
               display: "flex",
               flexDirection: "row",
               justifyContent: "space-around",
+              alignItems:'center',
               marginHorizontal: 10,
               width: 300,
-              marginVertical: 50,
+              height:'20%'
             }}
           >
             <View style={{ display: "flex", flexDirection: "column" }}>
@@ -480,44 +488,48 @@ const Game = (props) => {
               </Text>
             </View>
           </View>
-          <CustomButton
-            onClickCallback={navigateToRanking}
-            buttonContainerStyle={{
-              borderRadius: 5,
-              width: 300,
-              height: 40,
-              marginVertical: 10,
-              backgroundColor: tertiaryColor,
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-            label={"CLASSIFICA"}
-            buttonTextStyle={{
-              fontWeight: "bold",
-              fontSize: 30,
-              color: brandColor,
-            }}
-          />
-          <CustomButton
-            onClickCallback={navigateToGame}
-            buttonContainerStyle={{
-              borderRadius: 5,
-              width: 300,
-              height: 40,
-              marginVertical: 10,
-              backgroundColor: brandColor,
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-            label={"RIGIOCA"}
-            buttonTextStyle={{
-              fontWeight: "bold",
-              fontSize: 30,
-              color: tertiaryColor,
-            }}
-          />
+
+          <View style={{display:'flex',flexDirection:'column',height:'40%',alignItems:'center',justifyContent:'center'}}>
+            <CustomButton
+              onClickCallback={navigateToRanking}
+              buttonContainerStyle={{
+                borderRadius: 5,
+                width: 300,
+                height: 40,
+                marginVertical: 10,
+                backgroundColor: tertiaryColor,
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+              label={"CLASSIFICA"}
+              buttonTextStyle={{
+                fontWeight: "bold",
+                fontSize: 30,
+                color: brandColor,
+              }}
+            />
+            <CustomButton
+              onClickCallback={navigateToGame}
+              buttonContainerStyle={{
+                borderRadius: 5,
+                width: 300,
+                height: 40,
+                marginVertical: 10,
+                backgroundColor: brandColor,
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+              label={"RIGIOCA"}
+              buttonTextStyle={{
+                fontWeight: "bold",
+                fontSize: 30,
+                color: tertiaryColor,
+              }}
+            />
+          </View>
+
         </View>
       )}
     </View>
@@ -541,6 +553,7 @@ const styles = StyleSheet.create({
     padding: 10,
     borderBottomColor: brandColor,
     borderBottomWidth: 2,
+    height:'5%'
   },
   LogoImage: {
     height: 300,

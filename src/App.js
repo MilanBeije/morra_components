@@ -16,11 +16,11 @@ function App() {
       /> */}
 
       <div className="login">
-        <Login />
+        <Ranking/>
       </div>
 
+        {/* <Login /> */}
       {/* <Game/> */}
-      {/* <Ranking/> */}
     </div>
   );
 }

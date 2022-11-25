@@ -97,25 +97,29 @@ const Login = (props) => {
         style={styles.ImageBAckground}
       />
       {/* <Text>Login</Text> */}
-      <Image source={Logo} style={styles.LogoImage} resizeMode={"contain"} />
-      <CustomInput
-        callback={getValueUsername()}
-        styleCss={styles.InputCustom}
-        placeholder={"inserisci userName"}
-        placeholderColor={brandColor}
-      />
-      <CustomInput
-        callback={getValueEmail()}
-        styleCss={styles.InputCustom}
-        placeholder={"inserisci Email"}
-        placeholderColor={brandColor}
-      />
-      <CustomButton
-        onClickCallback={navigateToGame}
-        buttonContainerStyle={styles.ButtonContainerStyle}
-        label={"GIOCA"}
-        buttonTextStyle={styles.ButtonTextStyle}
-      />
+      <View style={{display:'flex',justifyContent:'center',alignItems:'center',height:'45%',width:'100%',marginTop:'5%'}}>
+        <Image source={Logo} style={styles.LogoImage} resizeMode={"contain"} />
+      </View>
+      <View style={{display:"flex",flexDirection:'column',alignItems:'center',height:'40%',justifyContent:'center',marginVertical:'5%'}}>
+        <CustomInput
+          callback={getValueUsername()}
+          styleCss={styles.InputCustom}
+          placeholder={"inserisci userName"}
+          placeholderColor={brandColor}
+        />
+        <CustomInput
+          callback={getValueEmail()}
+          styleCss={styles.InputCustom}
+          placeholder={"inserisci Email"}
+          placeholderColor={brandColor}
+        />
+        <CustomButton
+          onClickCallback={navigateToGame}
+          buttonContainerStyle={styles.ButtonContainerStyle}
+          label={"GIOCA"}
+          buttonTextStyle={styles.ButtonTextStyle}
+        />
+      </View>
     </View>
   );
 };
@@ -137,8 +141,8 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   LogoImage: {
-    height: 300,
-    width: 300,
+    height: '100%',
+    width: '100%',
     marginVertical: 30,
     marginBottom: 60,
   },

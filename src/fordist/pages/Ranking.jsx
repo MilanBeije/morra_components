@@ -73,13 +73,14 @@ const Ranking = (props) => {
   };
 
   return (
-    <ScrollView style={styles.mainView}>
+    <View style={styles.mainView}>
       <ImageBackground
         source={BackgroundPicture}
         resizeMode={"cover"}
         style={styles.ImageBAckground}
       />
-      <View style={{ display: "flex" }}>
+
+      <View style={{ display: "flex" ,height:'5%'}}>
         <Text
           style={{
             borderBottomColor: brandColor,
@@ -94,19 +95,22 @@ const Ranking = (props) => {
           CLASSIFICA
         </Text>
       </View>
-      <View style={{ display: "flex", alignItems: "center" }}>
+
+      <View style={{ display: "flex", alignItems: "center",height:'25%' }}>
         <Image
           source={boss}
           style={{
             width: 200,
-            height: 200,
+            height: '100%',
             transform: [{ rotate: "-10deg" }],
           }}
         />
       </View>
+
       <View
         style={{
-          flex: 1,
+          display:'flex',
+          height:'40%',
           alignItems: "center",
           backgroundColor: "#0000008a",
           width: 300,
@@ -119,12 +123,13 @@ const Ranking = (props) => {
         }}
       >
         <FlatList
+        style={{height:'100%'}}
           data={allUsers}
           renderItem={renderItem}
           keyExtractor={keyExtractor}
         />
       </View>
-      <View style={{ display: "flex", alignItems: "center" }}>
+      <View style={{ display: "flex", alignItems: "center",height:'20%' }}>
         <CustomButton
           onClickCallback={navigateToGame}
           buttonContainerStyle={{
@@ -164,7 +169,7 @@ const Ranking = (props) => {
           }}
         />
       </View>
-    </ScrollView>
+    </View>
   );
 };
 
@@ -172,36 +177,17 @@ export default Ranking;
 
 const styles = StyleSheet.create({
   mainView: {
-    width: Dimensions.get("window").width,
-    height: Dimensions.get("window").height,
+    width: '100%',
+    height: '100%',
     position: "relative",
     display: "flex",
     flexDirection: "column",
     // alignItems:'center'
   },
   ImageBAckground: {
-    width: Dimensions.get("window").width,
-    height: Dimensions.get("window").height,
+    width: '100%',
+    height: '100%',
     position: "absolute",
-  },
-  LogoImage: {
-    height: 300,
-    width: 300,
-    marginVertical: 30,
-    marginBottom: 60,
-  },
-  InputCustom: {
-    height: 40,
-    width: 300,
-    marginVertical: 12,
-    borderWidth: 5,
-    padding: 10,
-    backgroundColor: "transparent",
-    borderRadius: 3,
-    borderColor: brandColor,
-    borderWidth: 1,
-    backgroundColor: "#0000008a",
-    color: brandColor,
   },
   ButtonContainerStyle: {
     borderRadius: 5,
